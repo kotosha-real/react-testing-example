@@ -1,16 +1,8 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
 
 module.exports = {
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
-    entry: './src/index.tsx',
-    output: {
-        filename: 'main.js',
-        path: path.resolve(__dirname, 'dist'),
-    },
-    resolve: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    },
     module: {
         rules: [
             {
@@ -20,15 +12,14 @@ module.exports = {
             },
             {
                 test: /\.pcss$/,
-                exclude: /node_modules/,
                 use: [
                     {
-                        loader: 'style-loader',
+                        loader: 'style-loader'
                     },
                     {
                         loader: 'css-loader',
                         options: {
-                            importLoaders: 1,
+                            importLoaders: 1
                         }
                     },
                     {
@@ -40,10 +31,10 @@ module.exports = {
     },
     devServer: {
         static: {
-            directory: path.join(__dirname, 'public'),
+            directory: path.join(__dirname, 'public')
         },
         compress: true,
-        port: 9000,
+        port: 9000
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -51,4 +42,4 @@ module.exports = {
             template: path.join(__dirname, 'assets/index.html')
         })
     ]
-};
+}

@@ -1,15 +1,14 @@
-import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import React from 'react'
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { Input } from './Input';
+import { Input } from './Input'
 
 import './Input.stories.pcss'
 
 export default {
-    title: 'Input',
     component: Input,
-} as ComponentMeta<typeof Input>;
+    title: 'Input'
+} as ComponentMeta<typeof Input>
 
 export const Primary: ComponentStory<typeof Input> = () => (
     <div>
@@ -23,8 +22,12 @@ export const Primary: ComponentStory<typeof Input> = () => (
         <div>
             <h2>Password</h2>
             <div className="input-wrapper">
-                <Input id="my-password-input" label="Password field" type="password" />
+                <Input
+                    id="my-password-input"
+                    label="Password field"
+                    type="password"
+                />
             </div>
         </div>
     </div>
-);
+)

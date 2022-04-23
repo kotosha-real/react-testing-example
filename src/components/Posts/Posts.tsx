@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
-import { api } from '../../api/api';
-import type { PostData } from '../../api/types';
-import { Preloader } from '../../ui/Preloader/Preloader';
-import { Post } from '../Post/Post';
+import { api } from '../../api/api'
+import type { PostData } from '../../api/types'
+import { Preloader } from '../../ui/Preloader/Preloader'
+import { Post } from '../Post/Post'
 
-import './Posts.pcss';
+import './Posts.pcss'
 
 const Posts = () => {
-    const [posts, setPosts] = useState<PostData[]>([]);
+    const [posts, setPosts] = useState<PostData[]>([])
 
     useEffect(() => {
-        (async () => {
-            const { data: posts } = await api.getPosts();
+        ;(async () => {
+            const { data } = await api.getPosts()
 
-            setPosts(posts);
-        })();
-    }, []);
+            setPosts(data)
+        })()
+    }, [])
 
     return (
         <ul className="posts">
             {!posts.length && <Preloader fullPage />}
-            {posts.map(post => (
+            {posts.map((post) => (
                 <li key={post.id}>
                     <Post post={post} />
                 </li>
@@ -30,4 +30,4 @@ const Posts = () => {
     )
 }
 
-export { Posts };
+export { Posts }

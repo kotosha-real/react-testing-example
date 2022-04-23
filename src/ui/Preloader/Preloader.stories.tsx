@@ -1,25 +1,25 @@
-import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import React from 'react'
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { Preloader } from './Preloader';
+import { Preloader } from './Preloader'
 
 export default {
-    title: 'Preloader',
-    component: Preloader,
     argTypes: {
         fullPage: {
-            control: { type: 'boolean' },
-        },
+            control: { type: 'boolean' }
+        }
     },
-} as ComponentMeta<typeof Preloader>;
-
+    component: Preloader,
+    title: 'Preloader'
+} as ComponentMeta<typeof Preloader>
 
 const Template = ({ ...args }) => (
     <div>
         <h1>Preloader</h1>
         <div>
-            <h2>Switch between basic and full page preloader via controls tab</h2>
+            <h2>
+                Switch between basic and full page preloader via controls tab
+            </h2>
             <div>
                 <Preloader fullPage={args.fullPage} />
             </div>
@@ -27,4 +27,4 @@ const Template = ({ ...args }) => (
     </div>
 )
 
-export const Primary = Template.bind({});
+export const Primary: ComponentStory<typeof Preloader> = Template.bind({})

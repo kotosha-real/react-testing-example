@@ -1,27 +1,28 @@
 module.exports = (api) => {
-    const isTest = api.env('test');
+    const isTest = api.env('test')
 
     const config = {
+        plugins: [],
         presets: [
             [
                 '@babel/preset-env',
                 {
-                    useBuiltIns: 'usage',
                     corejs: 3,
-                    targets: '> 0.25%, not dead'
+                    targets: '> 0.25%, not dead',
+                    useBuiltIns: 'usage'
                 }
             ],
             '@babel/preset-react',
             '@babel/preset-typescript'
-        ],
-        plugins: []
-    };
-
-    if (!isTest) {
-        config.plugins.push(
-            ['react-remove-properties', { properties: ['data-testid'] }]
-        );
+        ]
     }
 
-    return config;
+    if (!isTest) {
+        config.plugins.push([
+            'react-remove-properties',
+            { properties: ['data-testid'] }
+        ])
+    }
+
+    return config
 }

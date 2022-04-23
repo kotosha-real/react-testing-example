@@ -1,21 +1,28 @@
-import React, { FC, HTMLInputTypeAttribute, InputHTMLAttributes, PropsWithChildren } from 'react';
+import React, { FC, InputHTMLAttributes } from 'react'
 
-import './Input.pcss';
+import './Input.pcss'
 
 export interface InputProps extends InputHTMLAttributes<any> {
-    id: string;
-    label: string;
+    id: string
+    label: string
 }
 
 const Input: FC<InputProps> = (props) => {
-    const { id, label, type = 'text', ...otherInputProps } = props;
+    const { id, label, type = 'text', ...otherInputProps } = props
 
     return (
         <div className="input">
-            <label className="input__label" htmlFor={id}>{label}</label>
-            <input {...otherInputProps} className="input__field" id={id} type={type} />
+            <label className="input__label" htmlFor={id}>
+                {label}
+            </label>
+            <input
+                {...otherInputProps}
+                className="input__field"
+                id={id}
+                type={type}
+            />
         </div>
     )
 }
 
-export { Input };
+export { Input }

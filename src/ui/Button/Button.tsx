@@ -1,16 +1,18 @@
-import b from 'b_';
-import React, { FC, PropsWithChildren } from 'react';
+/* eslint-disable react/button-has-type */
 
-import './Button.pcss';
+import b from 'b_'
+import React, { FC, PropsWithChildren } from 'react'
 
-export const ButtonSizes = ['small', 'medium', 'large'] as const;
-export const ButtonThemes = ['primary', 'secondary', 'danger'] as const;
-export type ButtonType = 'button' | 'submit';
+import './Button.pcss'
+
+export const ButtonSizes = ['small', 'medium', 'large'] as const
+export const ButtonThemes = ['primary', 'secondary', 'danger'] as const
+export type ButtonType = 'button' | 'submit'
 
 export interface ButtonProps {
-    onClick: () => any;
-    size?: typeof ButtonSizes[number];
-    theme?: typeof ButtonThemes[number];
+    onClick: () => any
+    size?: typeof ButtonSizes[number]
+    theme?: typeof ButtonThemes[number]
     type?: ButtonType
 }
 
@@ -21,13 +23,17 @@ const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
         size = 'medium',
         theme = 'primary',
         type = 'button'
-    } = props;
+    } = props
 
     return (
-        <button className={b('button', { theme, size })} type={type} onClick={onClick}>
+        <button
+            className={b('button', { size, theme })}
+            type={type}
+            onClick={onClick}
+        >
             {children}
         </button>
     )
 }
 
-export { Button };
+export { Button }

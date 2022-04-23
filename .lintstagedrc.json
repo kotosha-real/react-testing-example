@@ -1,3 +1,8 @@
 {
-    "*": "npm run lint:all"
+    "**/*.{js,jsx,ts,tsx}": [
+        "eslint --cache --quiet",
+        "prettier --check --loglevel warn"
+    ],
+    "**/*.*css": ["stylelint --cache", "prettier --check --loglevel warn"],
+    "**/*.{html,md}": "prettier --check --loglevel warn"
 }

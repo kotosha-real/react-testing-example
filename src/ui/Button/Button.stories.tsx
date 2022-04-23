@@ -1,29 +1,30 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import React from 'react'
 
-import { Button, ButtonSizes, ButtonThemes } from './Button';
-import './Button.stories.pcss';
+import { Button, ButtonSizes, ButtonThemes } from './Button'
+
+import './Button.stories.pcss'
 
 export default {
-    title: 'Button',
     component: Button,
-} as ComponentMeta<typeof Button>;
+    title: 'Button'
+} as ComponentMeta<typeof Button>
 
 export const Primary: ComponentStory<typeof Button> = () => {
-    const noop = () => {};
+    const noop = () => {}
 
     return (
         <div>
-            <h1>
-                Buttons
-            </h1>
+            <h1>Buttons</h1>
             <div>
                 <h2>Sizes</h2>
                 <div className="flex">
                     {ButtonSizes.map((size) => (
                         <div key={size}>
                             <p>{size}</p>
-                            <Button size={size} onClick={noop}>{size}</Button>
+                            <Button size={size} onClick={noop}>
+                                {size}
+                            </Button>
                         </div>
                     ))}
                 </div>
@@ -34,7 +35,9 @@ export const Primary: ComponentStory<typeof Button> = () => {
                     {ButtonThemes.map((theme) => (
                         <div key={theme}>
                             <p>{theme}</p>
-                            <Button theme={theme} onClick={noop}>{theme}</Button>
+                            <Button theme={theme} onClick={noop}>
+                                {theme}
+                            </Button>
                         </div>
                     ))}
                 </div>
