@@ -1,0 +1,64 @@
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 100px;
+
+    padding: 0 8px;
+
+    border: none;
+
+    background-color: unset;
+
+    transition-property: transform;
+    transition-duration: 100ms;
+    transition-timing-function: ease;
+
+    font-size: 16px;
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    &_size {
+        &_small {
+            height: 32px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+        }
+
+        &_medium {
+            height: 40px;
+
+            border-radius: 12px;
+        }
+
+        &_large {
+            height: 48px;
+
+            border-radius: 16px;
+        }
+    }
+
+    &_theme {
+        &_primary {
+            background-color: var(--color-accent);
+            color: var(--color-content-alternative);
+        }
+
+        &_secondary {
+            border: 2px solid var(--color-accent);
+
+            background-color: var(--color-background-primary);
+            color: var(--color-accent)
+        }
+
+        &_danger {
+            background-color: var(--color-danger);
+            color: var(--color-content-alternative);
+        }
+    }
+}
