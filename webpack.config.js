@@ -3,14 +3,23 @@ const path = require('path')
 
 module.exports = {
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+    entry: './src/index.tsx',
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist')
+    },
+    resolve: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
+    },
     module: {
         rules: [
             {
-                test: /\.(js|ts|jsx|tsx)$/,
+                exclude: /node_modules/,
                 loader: 'babel-loader',
-                exclude: /node_modules/
+                test: /\.(js|ts|jsx|tsx)$/
             },
             {
+                exclude: /node_modules/,
                 test: /\.pcss$/,
                 use: [
                     {
@@ -29,17 +38,17 @@ module.exports = {
             }
         ]
     },
-    devServer: {
-        static: {
-            directory: path.join(__dirname, 'public')
-        },
-        compress: true,
-        port: 9000
-    },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Practicum Middle Frontend course testing example',
-            template: path.join(__dirname, 'assets/index.html')
+            template: path.join(__dirname, 'assets/index.html'),
+            title: 'Practicum Middle Frontend course testing example'
         })
-    ]
+    ],
+    devServer: {
+        compress: true,
+        port: 9000,
+        static: {
+            directory: path.join(__dirname, 'public')
+        }
+    }
 }
