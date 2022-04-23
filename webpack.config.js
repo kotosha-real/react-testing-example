@@ -14,9 +14,14 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(ts|tsx)$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader',
-                test: /\.(js|ts|jsx|tsx)$/
+                use: ['babel-loader', 'ts-loader']
+            },
+            {
+                test: /\.(js)$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
             },
             {
                 exclude: /node_modules/,
@@ -50,5 +55,9 @@ module.exports = {
         static: {
             directory: path.join(__dirname, 'public')
         }
-    }
+    },
+    devtool:
+        process.env.NODE_ENV === 'production'
+            ? 'source-map'
+            : 'eval-cheap-module-source-map'
 }
