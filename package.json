@@ -33,6 +33,7 @@
         "autoprefixer": "10.4.4",
         "babel-loader": "8.2.4",
         "babel-plugin-react-remove-properties": "0.3.0",
+        "cross-env": "7.0.3",
         "css-loader": "6.7.1",
         "eslint": "8.14.0",
         "eslint-config-airbnb": "19.0.4",
@@ -65,8 +66,8 @@
         "webpack-dev-server": "4.8.1"
     },
     "scripts": {
-        "dev": "NODE_ENV=development webpack serve",
-        "build": "NODE_ENV=production webpack",
+        "dev": "cross-env NODE_ENV=development webpack serve",
+        "build": "cross-env NODE_ENV=production webpack",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
         "test": "jest --coverage",
